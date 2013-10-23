@@ -183,13 +183,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SnippetsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
     <Compile Include="Models\SnippetCategory.cs" />
+    <Compile Include="Models\SnippetsDBContext.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Visibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -305,6 +308,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Snippets\Create.cshtml" />
+    <Content Include="Views\Snippets\Delete.cshtml" />
+    <Content Include="Views\Snippets\Details.cshtml" />
+    <Content Include="Views\Snippets\Edit.cshtml" />
+    <Content Include="Views\Snippets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
