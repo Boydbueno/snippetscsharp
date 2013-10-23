@@ -8,8 +8,8 @@ namespace Snippets.Models
     public class Tag
     {
 
-        public int ID { get; set; }
-        public string Label { get; set; }
+        public virtual int ID { get; set; }
+        public virtual string Label { get; set; }
 
     }
 }

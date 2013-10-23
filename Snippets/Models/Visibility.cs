@@ -8,9 +8,9 @@ namespace Snippets.Models
     public class Visibility
     {
 
-        public int ID { get; set; }
-        public string Label { get; set; }
-        public string Description { get; set; }
+        public virtual int ID { get; set; }
+        public virtual string Label { get; set; }
+        public virtual string Description { get; set; }
 
     }
 }
