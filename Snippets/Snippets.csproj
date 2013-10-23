@@ -188,6 +188,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Snippet.cs" />
+    <Compile Include="Models\SnippetCategory.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\Visibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
