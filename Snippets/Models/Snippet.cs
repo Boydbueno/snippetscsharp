@@ -12,7 +12,7 @@ namespace Snippets.Models
         public virtual string Title { get; set; }
         public virtual string Body { get; set; }
 
-        public virtual List<SnippetCategory> SnippetCategories { get; set; }
+        public virtual List<Category> SnippetCategories { get; set; }
         public virtual List<Tag> Tags { get; set; }
 
         public virtual int VisibilityId { get; set; }

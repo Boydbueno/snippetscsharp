@@ -188,10 +188,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201310231529307_InitialCreate.cs" />
+    <Compile Include="Migrations\201310231529307_InitialCreate.Designer.cs">
+      <DependentUpon>201310231529307_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310241010007_RenameSnippetsCategoryToCategory.cs" />
+    <Compile Include="Migrations\201310241010007_RenameSnippetsCategoryToCategory.Designer.cs">
+      <DependentUpon>201310241010007_RenameSnippetsCategoryToCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
-    <Compile Include="Models\SnippetCategory.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\SnippetsDBContext.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Visibility.cs" />
@@ -319,6 +327,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201310231529307_InitialCreate.resx">
+      <DependentUpon>201310231529307_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310241010007_RenameSnippetsCategoryToCategory.resx">
+      <DependentUpon>201310241010007_RenameSnippetsCategoryToCategory.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

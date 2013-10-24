@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Snippets.Models
 {
-    public class SnippetCategory
+    public class Category
     {
         public virtual int ID { get; set; }
         public virtual string Label { get; set; }
