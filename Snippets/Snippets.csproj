@@ -196,6 +196,10 @@
     <Compile Include="Migrations\201310241010007_RenameSnippetsCategoryToCategory.Designer.cs">
       <DependentUpon>201310241010007_RenameSnippetsCategoryToCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.cs" />
+    <Compile Include="Migrations\201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.Designer.cs">
+      <DependentUpon>201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201310241010007_RenameSnippetsCategoryToCategory.resx">
       <DependentUpon>201310241010007_RenameSnippetsCategoryToCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.resx">
+      <DependentUpon>201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

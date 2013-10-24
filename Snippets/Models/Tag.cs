@@ -11,5 +11,7 @@ namespace Snippets.Models
         public virtual int ID { get; set; }
         public virtual string Label { get; set; }
 
+        public virtual ICollection<Snippet> Snippets { get; set; }
+
     }
 }
