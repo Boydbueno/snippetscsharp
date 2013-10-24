@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,8 @@ namespace Snippets.Models
     {
 
         public virtual int ID { get; set; }
+
+        [DisplayName("Visibility")]
         public virtual string Label { get; set; }
         public virtual string Description { get; set; }
 
