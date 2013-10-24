@@ -1,6 +1,7 @@
 namespace Snippets.Migrations
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -20,6 +21,26 @@ namespace Snippets.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
+
+                context.Snippets.AddOrUpdate(s => s.Title,
+                    new Snippet
+                    {
+                        Title = "This is my first snippet",
+                        Body = "This is the body of my snippet, which doesn't look anything like a snippet",
+                        Categories = new List<Category>(), 
+                        Tags = new List<Tag>(),
+                        VisibilityId = context.Visibilities.Single( s => s.Label == "Public").ID
+                    },
+                    new Snippet
+                    {
+                        Title = "This is my second snippet",
+                        Body = "Just some weird stuff in here to function as a second snippet and yeah, this snippet is protected",
+                        Categories = new List<Category>(), 
+                        Tags = new List<Tag>(),
+                        VisibilityId = context.Visibilities.Single( s => s.Label == "Protected").ID
+                    }
+                );
+
                 context.Visibilities.AddOrUpdate(v => v.Label,
                   new Visibility { 
                       Label = "Hidden",
@@ -36,7 +57,21 @@ namespace Snippets.Migrations
                       Description = "Visible to everyone"
                   }
                 );
-            //
+
+                context.Tags.AddOrUpdate(t => t.Label,
+                    new Tag
+                    {
+                        Label = "PHP"
+                    },
+                    new Tag
+                    {
+                        Label = "JavaScript"
+                    },
+                    new Tag
+                    {
+                        Label = "Tricks"
+                    }
+                );
         }
     }
 }
