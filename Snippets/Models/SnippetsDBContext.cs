@@ -20,5 +20,7 @@ namespace Snippets.Models
         public DbSet<Snippet> Snippets { get; set; }
 
         public DbSet<Visibility> Visibilities { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
     }
 }
