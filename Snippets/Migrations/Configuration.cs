@@ -74,6 +74,7 @@ namespace Snippets.Migrations
             );
 
             AddOrUpdateTag(context, 1, "PHP");
+            AddOrUpdateTag(context, 1, "Tricks");
             AddOrUpdateTag(context, 2, "Tricks");
 
             context.SaveChanges();
