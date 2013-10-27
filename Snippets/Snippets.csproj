@@ -207,6 +207,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\SnippetsDBContext.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\ViewModels\SnippetDetails.cs" />
     <Compile Include="Models\Visibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

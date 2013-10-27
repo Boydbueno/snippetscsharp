@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Snippets.Models;
+using Snippets.Models.ViewModels;
 
 namespace Snippets.Controllers
 {
@@ -27,12 +28,18 @@ namespace Snippets.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Snippet snippet = db.Snippets.Find(id);
-            if (snippet == null)
+            var viewModel = new SnippetDetails();
+
+            viewModel.Snippet = db.Snippets.Find(id);
+
+            if (viewModel.Snippet == null)
             {
                 return HttpNotFound();
             }
-            return View(snippet);
+
+            viewModel.Tags = viewModel.Snippet.Tags;
+
+            return View(viewModel);
         }
 
         //
