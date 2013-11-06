@@ -28,18 +28,14 @@ namespace Snippets.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            var viewModel = new SnippetDetails();
+            Snippet snippet = db.Snippets.Find(id);
 
-            viewModel.Snippet = db.Snippets.Find(id);
-
-            if (viewModel.Snippet == null)
+            if (snippet == null)
             {
                 return HttpNotFound();
             }
 
-            viewModel.Tags = viewModel.Snippet.Tags;
-
-            return View(viewModel);
+            return View(snippet);
         }
 
         //
@@ -79,8 +75,28 @@ namespace Snippets.Controllers
             {
                 return HttpNotFound();
             }
+            
             ViewBag.VisibilityId = new SelectList(db.Visibilities, "ID", "Label", snippet.VisibilityId);
+            ViewBag.Tags = getSelectedTagData(snippet);
+
             return View(snippet);
+        }
+
+        private List<SelectedTagData> getSelectedTagData(Snippet snippet)
+        {
+            List<Tag> allTags = db.Tags.ToList();
+            var snippetTags = snippet.Tags.Select(t => t.ID);
+            var viewModel = new List<SelectedTagData>();
+            foreach (var tag in allTags)
+            {
+                viewModel.Add(new SelectedTagData
+                {
+                    TagId = tag.ID,
+                    Label = tag.Label,
+                    Selected = snippetTags.Contains(tag.ID)
+                });
+            }
+            return viewModel;
         }
 
         //
@@ -88,16 +104,61 @@ namespace Snippets.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Snippet snippet)
+        public ActionResult Edit(int id, FormCollection formCollection, string[] selectedTags)
         {
+            // Eager load snippet with it's tags
+            Snippet snippet = db.Snippets
+                    .Include(s => s.Tags)
+                    .Where(s => s.ID == id)
+                    .Single();
+
             if (ModelState.IsValid)
             {
-                db.Entry(snippet).State = EntityState.Modified;
+
+                UpdateModel(snippet);
+
+                UpdateSnippetTags(selectedTags, snippet);
+
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
+
             ViewBag.VisibilityId = new SelectList(db.Visibilities, "ID", "Label", snippet.VisibilityId);
-            return View(snippet);
+            ViewBag.Tags = getSelectedTagData(snippet);
+
+            return View(db.Snippets.Find(id));
+        }
+
+        private void UpdateSnippetTags(string[] selectedTags, Snippet snippetToUpdate)
+        {
+            if (selectedTags == null)
+            {
+                snippetToUpdate.Tags = new List<Tag>();
+                return;
+            }
+
+            var tagIds = snippetToUpdate.Tags.Select(t => t.ID);
+
+            foreach (Tag tag in db.Tags)
+            {
+                if (selectedTags.Contains(tag.ID.ToString()))
+                {
+                    if (!tagIds.Contains(tag.ID))
+                    {
+                        snippetToUpdate.Tags.Add(tag);
+                    }
+                }
+                else
+                {
+                    if (tagIds.Contains(tag.ID))
+                    {
+                        snippetToUpdate.Tags.Remove(tag);
+                    }
+                }
+   
+            }
+
         }
 
         //

@@ -1,4 +1,6 @@
-﻿@model Snippets.Models.Snippet
+﻿@using Snippets.Models
+@using Snippets.Models.ViewModels
+@model Snippet
 
 @{
     ViewBag.Title = "Edit";
@@ -6,7 +8,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -39,11 +42,23 @@
             @Html.ValidationMessageFor(model => model.VisibilityId)
         </div>
 
+        <div>
+            @foreach (SelectedTagData tag in ViewBag.Tags)
+            {
+                <input type="checkbox" name="selectedTags" value="@tag.TagId" 
+                    @(Html.Raw(tag.Selected ? "checked" : "")) />
+                @tag.Label
+            }
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>
     </fieldset>
 }
+
+<h2>Assigned tags:</h2>
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

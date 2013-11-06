@@ -1,4 +1,4 @@
-﻿@model Snippets.Models.ViewModels.SnippetDetails
+﻿@model Snippets.Models.Snippet
 @{
     ViewBag.Title = "Details";
 }
@@ -9,39 +9,38 @@
     <legend>Snippet</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Snippet.Title)
+         @Html.DisplayNameFor(model => model.Title)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Snippet.Title)
+        @Html.DisplayFor(model => model.Title)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Snippet.Body)
+         @Html.DisplayNameFor(model => model.Body)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Snippet.Body)
+        @Html.DisplayFor(model => model.Body)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Snippet.Visibility.Label)
+         @Html.DisplayNameFor(model => model.Visibility.Label)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Snippet.Visibility.Label)
+        @Html.DisplayFor(model => model.Visibility.Label)
     </div>
 </fieldset>
 
 <h2>Tags</h2>
 <ul>
-    
-</ul>
 @foreach (Snippets.Models.Tag tag in Model.Tags)
 {
 
     <li>@tag.Label</li>
     
 }
+</ul>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Snippet.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
