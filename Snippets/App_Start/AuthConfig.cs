@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
 using Snippets.Models;
+using WebMatrix.WebData;
 
 namespace Snippets
 {
@@ -27,6 +28,8 @@ namespace Snippets
             //    appSecret: "");
 
             //OAuthWebSecurity.RegisterGoogleClient();
+
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
         }
     }
 }

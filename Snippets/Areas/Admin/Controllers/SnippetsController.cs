@@ -10,7 +10,7 @@ using Snippets.Areas.Admin.Models.ViewModels;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    public class SnippetsController : Controller
+    public class SnippetsController : AdminController
     {
         private SnippetsDBContext db = new SnippetsDBContext();
 

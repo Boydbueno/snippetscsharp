@@ -9,7 +9,7 @@ using Snippets.Models;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    public class TagsController : Controller
+    public class TagsController : AdminController
     {
         private SnippetsDBContext db = new SnippetsDBContext();
 

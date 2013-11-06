@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AdminController
     {
         //
         // GET: /Admin/Home/

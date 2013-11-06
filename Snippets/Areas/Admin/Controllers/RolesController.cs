@@ -10,7 +10,7 @@ using Snippets.Filters;
 namespace Snippets.Areas.Admin.Controllers
 {
     [InitializeSimpleMembership]
-    public class RolesController : Controller
+    public class RolesController : AdminController
     {
         //
         // GET: /Admin/UserRoles/
