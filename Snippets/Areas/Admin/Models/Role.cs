@@ -7,12 +7,16 @@ using System.Web.Security;
 
 namespace Snippets.Areas.Admin.Models
 {
-    public class UserRole
+    public class Role
     {
         [Required]
         public string Name { get; set; }
 
-        public UserRole(string name)
+        public Role()
+        {
+        }
+
+        public Role(string name)
         {
             this.Name = name;
         }

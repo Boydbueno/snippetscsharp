@@ -1,5 +1,5 @@
 ﻿@using Snippets.Areas.Admin.Models
-@model IEnumerable<UserRole>
+@model IEnumerable<Role>
 <h2>Index</h2>
 
 <p>
@@ -12,7 +12,7 @@
         </th>
     </tr>
 
-@foreach (UserRole role in Model) {
+@foreach (Role role in Model) {
     <tr>
         <td>
             @role.Name

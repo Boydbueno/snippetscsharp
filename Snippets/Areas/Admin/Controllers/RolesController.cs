@@ -8,20 +8,20 @@ using Snippets.Areas.Admin.Models;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    public class UserRolesController : Controller
+    public class RolesController : Controller
     {
         //
         // GET: /Admin/UserRoles/
 
         public ActionResult Index()
         {
-            List<UserRole> userRoles = new List<UserRole>();
+            List<Role> userRoles = new List<Role>();
 
             string[] roles = Roles.GetAllRoles();
 
             foreach (string role in roles)
             {
-                userRoles.Add(new UserRole(role));
+                userRoles.Add(new Role(role));
             }
 
             return View(userRoles);
@@ -40,7 +40,7 @@ namespace Snippets.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserRole Role)
+        public ActionResult Create(Role Role)
         {
             if (Roles.RoleExists(Role.Name))
             {
