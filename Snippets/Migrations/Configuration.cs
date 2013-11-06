@@ -88,6 +88,9 @@ namespace Snippets.Migrations
 
             AddRoles(new string[] { "Standard", "Admin" } );
 
+            AddUser("Admin", "Welkom01", "Admin");
+            AddUser("Boyd", "Welkom01", "Standard");
+
             context.SaveChanges();
 
         }
@@ -111,6 +114,15 @@ namespace Snippets.Migrations
                 {
                     Roles.CreateRole(role);
                 }
+            }
+        }
+
+        private void AddUser(string userName, string password, string role)
+        {
+            if (!WebSecurity.UserExists(userName))
+            {
+                WebSecurity.CreateUserAndAccount(userName, password);
+                Roles.AddUserToRole(userName, role);
             }
         }
 
