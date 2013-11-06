@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Snippets.Areas.Admin.Models;
+using Snippets.Filters;
 
 namespace Snippets.Areas.Admin.Controllers
 {
+    [InitializeSimpleMembership]
     public class RolesController : Controller
     {
         //
