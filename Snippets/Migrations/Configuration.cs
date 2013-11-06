@@ -6,7 +6,9 @@ namespace Snippets.Migrations
     using System.Data.Entity.Migrations;
     using System.Diagnostics;
     using System.Linq;
+    using System.Web.Security;
     using Snippets.Models;
+    using WebMatrix.WebData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Snippets.Models.SnippetsDBContext>
     {
@@ -21,6 +23,11 @@ namespace Snippets.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
+
+            if (!WebSecurity.Initialized)
+            {
+                WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            }
 
             context.Snippets.AddOrUpdate(s => s.Title,
                 new Snippet
@@ -79,6 +86,16 @@ namespace Snippets.Migrations
             AddOrUpdateTag(context, 1, "Tricks");
             AddOrUpdateTag(context, 2, "Tricks");
 
+            if (!Roles.RoleExists("Standard"))
+            {
+                Roles.CreateRole("Standard");
+            }
+
+            if (!Roles.RoleExists("Admin"))
+            {
+                Roles.CreateRole("Admin");
+            }
+            
             context.SaveChanges();
 
         }
