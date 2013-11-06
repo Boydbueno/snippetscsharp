@@ -86,16 +86,8 @@ namespace Snippets.Migrations
             AddOrUpdateTag(context, 1, "Tricks");
             AddOrUpdateTag(context, 2, "Tricks");
 
-            if (!Roles.RoleExists("Standard"))
-            {
-                Roles.CreateRole("Standard");
-            }
+            AddRoles(new string[] { "Standard", "Admin" } );
 
-            if (!Roles.RoleExists("Admin"))
-            {
-                Roles.CreateRole("Admin");
-            }
-            
             context.SaveChanges();
 
         }
@@ -108,6 +100,17 @@ namespace Snippets.Migrations
 
             if(tag == null) {
                 snippet.Tags.Add(context.Tags.Single(t => t.Label == tagLabel));
+            }
+        }
+
+        private void AddRoles(string[] roles)
+        {
+            foreach (string role in roles)
+            {
+                if (!Roles.RoleExists(role))
+                {
+                    Roles.CreateRole(role);
+                }
             }
         }
 
