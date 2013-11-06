@@ -81,6 +81,14 @@ namespace Snippets.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+
+                    if (!Roles.RoleExists("Standard"))
+                    {
+                        Roles.CreateRole("Standard");
+                    }
+
+                    Roles.AddUserToRole(model.UserName, "Standard");
+
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
