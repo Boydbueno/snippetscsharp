@@ -1,0 +1,23 @@
+﻿@using Snippets.Areas.Admin.Models
+@model IEnumerable<UserRole>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Roles
+        </th>
+    </tr>
+
+@foreach (UserRole role in Model) {
+    <tr>
+        <td>
+            @role.Name
+        </td>
+    </tr>
+}
+
+</table>
