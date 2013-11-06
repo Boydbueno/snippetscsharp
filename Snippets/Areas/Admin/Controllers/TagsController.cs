@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Snippets.Models;
 
-namespace Snippets.Controllers
+namespace Snippets.Areas.Admin.Controllers
 {
     public class TagsController : Controller
     {

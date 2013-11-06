@@ -181,10 +181,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SnippetsController.cs" />
-    <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SnippetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TagsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,7 +209,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\SnippetsDBContext.cs" />
     <Compile Include="Models\Tag.cs" />
-    <Compile Include="Models\ViewModels\SelectedTagData.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\SelectedTagData.cs" />
     <Compile Include="Models\Visibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -268,6 +270,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -322,16 +328,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Snippets\Create.cshtml" />
-    <Content Include="Views\Snippets\Delete.cshtml" />
-    <Content Include="Views\Snippets\Details.cshtml" />
-    <Content Include="Views\Snippets\Edit.cshtml" />
-    <Content Include="Views\Snippets\Index.cshtml" />
-    <Content Include="Views\Tags\Index.cshtml" />
-    <Content Include="Views\Tags\Details.cshtml" />
-    <Content Include="Views\Tags\Create.cshtml" />
-    <Content Include="Views\Tags\Edit.cshtml" />
-    <Content Include="Views\Tags\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Snippets\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Snippets\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Snippets\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Snippets\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Snippets\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Tags\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Tags\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Tags\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Tags\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Tags\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Snippets.Models;
-using Snippets.Models.ViewModels;
+using Snippets.Areas.Admin.Models.ViewModels;
 
-namespace Snippets.Controllers
+namespace Snippets.Areas.Admin.Controllers
 {
     public class SnippetsController : Controller
     {

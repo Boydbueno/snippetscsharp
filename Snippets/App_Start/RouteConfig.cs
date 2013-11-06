@@ -13,11 +13,14 @@ namespace Snippets
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            var route = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "Snippets.Controllers.*" }
             );
+
+            route.DataTokens["UseNamespaceFallback"] = false;
         }
     }
 }
