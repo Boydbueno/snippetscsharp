@@ -3,51 +3,35 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<article>
+    <h1>@Html.DisplayFor(model => model.Title)</h1>
 
-<fieldset>
-    <legend>Snippet</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
-    </div>
-    <div class="display-field">
+    <p>
         @Html.DisplayFor(model => model.Description)
-    </div>
+    </p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Body)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Body)
-    </div>
+    <pre class="prettyprint linenums">@Html.DisplayFor(model => model.Body)</pre>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Visibility.Label)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Visibility.Label)
-    </div>
-</fieldset>
+    @Html.DisplayNameFor(model => model.Visibility.Label): @Html.DisplayFor(model => model.Visibility.Label)
 
-<h2>Tags</h2>
-<ul>
-@foreach (Snippets.Models.Tag tag in Model.Tags)
-{
+    <h2>Tags</h2>
 
-    <li>@tag.Label</li>
+    <ul class="tags">
+    @foreach (Snippets.Models.Tag tag in Model.Tags)
+    {
+
+        <li class="tag">@tag.Label</li>
     
-}
-</ul>
+    }
+    </ul>
+</article>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@section scripts{
+   @Scripts.Render("~/Content/prettify/prettify.js")
+   <script>prettyPrint();</script>
+}
