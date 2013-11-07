@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Snippets.Models;
 using WebMatrix.WebData;
 
@@ -109,9 +110,23 @@ namespace Snippets.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             UserProfile userprofile = db.UserProfiles.Find(id);
+
+            if (Roles.GetRolesForUser(userprofile.UserName).Length > 0)
+            {
+                DeleteUserRoles(userprofile.UserName);
+            }
+
             db.UserProfiles.Remove(userprofile);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        private void DeleteUserRoles(string username)
+        {
+            foreach (string role in Roles.GetRolesForUser(username))
+            {
+                Roles.RemoveUserFromRole(username, role);
+            }
         }
 
         protected override void Dispose(bool disposing)
