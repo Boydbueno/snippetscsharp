@@ -23,10 +23,21 @@
             @Html.ValidationMessageFor(model => model.UserName)
         </div>
 
+        <h3>Roles</h3>
+
+        <div>
+            @foreach (Snippets.Areas.Admin.Models.ViewModels.SelectedRoleData role in ViewBag.roles)
+            {
+                <input type="checkbox" name="roles" value="@role.Role" 
+                    @(Html.Raw(role.Selected ? "checked" : "")) />
+                @role.Role
+            }
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>
-    </fieldset>
+    </fieldset>    
 }
 
 <div>

@@ -81,12 +81,35 @@ namespace Snippets.Areas.Admin.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+
+            UserProfile userProfile = db.UserProfiles.Find(id);
+
+            if (userProfile == null)
             {
                 return HttpNotFound();
             }
-            return View(userprofile);
+
+            ViewBag.roles = getSelectedRoleData(userProfile.UserName);
+
+            return View(userProfile);
+        }
+
+        private List<SelectedRoleData> getSelectedRoleData(string username)
+        {
+            List<SelectedRoleData> viewModel = new List<SelectedRoleData>();
+
+            string[] roles = Roles.GetAllRoles();
+            string[] userRoles = Roles.GetRolesForUser(username);
+
+            foreach (string role in roles)
+            {
+                viewModel.Add(new SelectedRoleData
+                {
+                    Role = role,
+                    Selected = userRoles.Contains(role)
+                });
+            }
+            return viewModel;
         }
 
         //
@@ -94,15 +117,50 @@ namespace Snippets.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserProfile userprofile)
+        public ActionResult Edit(UserProfile userProfile, string[] roles)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userprofile).State = EntityState.Modified;
+                db.Entry(userProfile).State = EntityState.Modified;
+                UpdateUserRoles(userProfile.UserName, roles);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            return View(userprofile);
+            return View(userProfile);
+        }
+
+        private void UpdateUserRoles(string username, string[] roles)
+        {
+
+            if (roles == null)
+            {
+                roles = new string[0];
+            }
+
+            // Loop through all existing roles.
+            foreach (string role in Roles.GetAllRoles())
+            {
+
+                // If the role is in the checked array and user doesn't have it yet.
+                if (roles.Contains(role))
+                {
+                    if (!Roles.GetRolesForUser(username).Contains(role))
+                    {
+                        // Add the role to the user
+                        Roles.AddUserToRole(username, role);
+                    }
+                }
+                else
+                {
+                    if (Roles.GetRolesForUser(username).Contains(role))
+                    {
+                        // remove it
+                        Roles.RemoveUserFromRole(username, role);
+                    }
+                }
+
+            }
         }
 
         //
@@ -110,12 +168,17 @@ namespace Snippets.Areas.Admin.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+            UserRoles userRoles = new UserRoles();
+
+            userRoles.userProfile = db.UserProfiles.Find(id);
+            if (userRoles.userProfile == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
-            return View(userprofile);
+
+            userRoles.roles = Roles.GetRolesForUser(userRoles.userProfile.UserName);
+
+            return View(userRoles);
         }
 
         //
