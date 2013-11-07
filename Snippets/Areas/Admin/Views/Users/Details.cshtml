@@ -1,4 +1,4 @@
-﻿@model Snippets.Models.UserProfile
+﻿@model Snippets.Areas.Admin.Models.ViewModels.UserRoles
 
 @{
     ViewBag.Title = "Details";
@@ -10,13 +10,26 @@
     <legend>UserProfile</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
+         @Html.DisplayNameFor(model => model.userProfile.UserName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.UserName)
+        @Html.DisplayFor(model => model.userProfile.UserName)
     </div>
 </fieldset>
+
+@if (Model.roles.Length > 0)
+{
+    <h3>Associated roles</h3>
+    <ul>
+        @foreach (string role in Model.roles)
+        {
+            <li>@role</li>
+        }
+    </ul>
+}
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.userProfile.UserId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

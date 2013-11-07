@@ -30,12 +30,17 @@ namespace Snippets.Areas.Admin.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+            UserRoles userRoles = new UserRoles();
+
+            userRoles.userProfile = db.UserProfiles.Find(id);
+            if (userRoles.userProfile == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
-            return View(userprofile);
+
+            userRoles.roles = Roles.GetRolesForUser(userRoles.userProfile.UserName);
+
+            return View(userRoles);
         }
 
         //
