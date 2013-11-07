@@ -3,28 +3,7 @@
     ViewBag.Title = "Details";
 }
 
-<article>
-    <h1>@Html.DisplayFor(model => model.Title)</h1>
-
-    <p>
-        @Html.DisplayFor(model => model.Description)
-    </p>
-
-    <pre class="prettyprint linenums">@Html.DisplayFor(model => model.Body)</pre>
-
-    @Html.DisplayNameFor(model => model.Visibility.Label): @Html.DisplayFor(model => model.Visibility.Label)
-
-    <h2>Tags</h2>
-
-    <ul class="tags">
-    @foreach (Snippets.Models.Tag tag in Model.Tags)
-    {
-
-        <li class="tag">@tag.Label</li>
-    
-    }
-    </ul>
-</article>
+@Html.Partial("Partials/_snippet", Model)
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
