@@ -24,6 +24,7 @@ namespace Snippets.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+        [Display(Name = "User name")]
         public string UserName { get; set; }
     }
 
