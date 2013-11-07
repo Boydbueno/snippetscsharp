@@ -1,0 +1,51 @@
+﻿@model Snippets.Areas.Admin.Models.ViewModels.RoleUsers
+
+<h2>Delete</h2>
+
+@if (Model.Users != null && Model.Users.Length >= 1)
+{
+    <h3>There are users associated with this role!</h3>
+    <p>You cannot delete this role because there are users associated with it. See below list for the associated users. Change their roles and try again.</p>
+    
+    <ul>
+        @foreach (string user in Model.Users)
+        {
+            <li>@user</li>
+        }
+    </ul>
+    
+} 
+else 
+{
+     
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Snippet</legend>
+
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Role.Name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Role.Name)
+        </div>
+
+
+    </fieldset>
+
+    if (ViewBag.Error != null)
+    {
+        @ViewBag.Error
+    }
+
+    using(Html.BeginForm(new {Name = Model.Role.Name})) {
+        @Html.AntiForgeryToken()
+        <p>
+             <input type="submit" value="Delete" />
+        </p>
+    }
+
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

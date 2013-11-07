@@ -88,6 +88,8 @@ namespace Snippets.Migrations
 
             AddRoles(new string[] { "Standard", "Admin" } );
 
+            context.SaveChanges();
+
             AddUser("Admin", "Welkom01", "Admin");
             AddUser("Boyd", "Welkom01", "Standard");
 
