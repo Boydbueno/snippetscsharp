@@ -20,6 +20,7 @@
             @role.Name
         </td>
         <td>
+            @Html.ActionLink("Details", "Details", new { id = role.Name }) |
             @Html.ActionLink("Delete", "Delete", new { id = role.Name })
         </td>
     </tr>

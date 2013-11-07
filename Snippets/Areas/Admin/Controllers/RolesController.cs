@@ -10,7 +10,6 @@ using Snippets.Filters;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    [InitializeSimpleMembership]
     public class RolesController : AdminController
     {
         //
@@ -28,6 +27,25 @@ namespace Snippets.Areas.Admin.Controllers
             }
 
             return View(userRoles);
+        }
+
+        //
+        // GET: /Admin/Snippets/Details/role
+
+        public ActionResult Details(string id = null)
+        {
+
+            if (!Roles.RoleExists(id))
+            {
+                return RedirectToAction("Index");
+            }
+
+            RoleUsers roleUsers = new RoleUsers();
+
+            roleUsers.Role = new Role(id);
+            roleUsers.Users = Roles.GetUsersInRole(id);
+
+            return View(roleUsers);
         }
 
         // 

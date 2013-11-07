@@ -1,0 +1,31 @@
+﻿@model Snippets.Areas.Admin.Models.ViewModels.RoleUsers
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Role</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Role.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role.Name)
+    </div>
+</fieldset>
+
+<h2>Associated users</h2>
+<ul>
+@foreach (string user in Model.Users)
+{
+
+    <li>@user</li>
+    
+}
+</ul>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

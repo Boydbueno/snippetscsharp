@@ -15,7 +15,7 @@ namespace Snippets.Areas.Admin.Controllers
         private SnippetsDBContext db = new SnippetsDBContext();
 
         //
-        // GET: /Snippets/
+        // GET: /Admin/Snippets/
 
         public ActionResult Index()
         {
@@ -24,7 +24,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Snippets/Details/5
+        // GET: /Admin/Snippets/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -39,7 +39,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Snippets/Create
+        // GET: /Admin/Snippets/Create
 
         public ActionResult Create()
         {
@@ -48,7 +48,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Snippets/Create
+        // POST: /Admin/Snippets/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -66,7 +66,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Snippets/Edit/5
+        // GET: /Admin/Snippets/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -100,7 +100,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Snippets/Edit/5
+        // POST: /Admin/Snippets/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -162,7 +162,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Snippets/Delete/5
+        // GET: /Admin/Snippets/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -175,7 +175,7 @@ namespace Snippets.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Snippets/Delete/5
+        // POST: /Admin/Snippets/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
