@@ -14,5 +14,8 @@
             <span>@tag.Label</span>
         }
     </footer>
-
+    @if (Roles.IsUserInRole("Admin"))
+    {
+        <span>Visibility:</span> @Model.Visibility.Label
+    }
 </article>
