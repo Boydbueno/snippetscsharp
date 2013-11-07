@@ -32,19 +32,48 @@ namespace Snippets.Migrations
             context.Snippets.AddOrUpdate(s => s.Title,
                 new Snippet
                 {
-                    Title = "This is my first snippet",
-                    Body = "This is the body of my snippet, which doesn't look anything like a snippet",
-                    Categories = new List<Category>(), 
+                    Title = "JavaScript Properties",
+                    Description = "Ipv methods/properties gewoon aan de prototype te hangen kan dat ook via defineProperties",
+                    Body = @"Object.defineProperties(o.prototype, {
+  property:{
+    value: ""Waarde""
+  }
+  property: { 
+     set: function(){
+        // Functie voor set 
+     },
+     get: function(){
+        return // stuff
+     }
+});
+",
+                    Categories = new List<Category>(),
                     Tags = new List<Tag>(),
-                    VisibilityId = context.Visibilities.Single( s => s.Label == "Public").ID
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Public").ID
                 },
                 new Snippet
                 {
-                    Title = "This is my second snippet",
-                    Body = "Just some weird stuff in here to function as a second snippet and yeah, this snippet is protected",
-                    Categories = new List<Category>(), 
+                    Title = "Compass Spriting",
+                    Description = "Generating sprites with compass",
+                    Body = @"@import ""my-icons/*.png"";
+@include all-my-icons-sprites;
+",
+                    Categories = new List<Category>(),
                     Tags = new List<Tag>(),
-                    VisibilityId = context.Visibilities.Single( s => s.Label == "Protected").ID
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Protected").ID
+                },
+                new Snippet
+                {
+                    Title = "sprintf",
+                    Description = "String formatten. Not sure when I’d use this. Maar wel handig om te onthouden.",
+                    Body = @"$name = ""Boyd Bueno de Mesquita"";
+$age = ""23"";
+$job = ""Student"";
+$string = sprintf(""My name is %s and I’m $d years old. I’m currently a $s"", $name, $age, $job);
+",
+                    Categories = new List<Category>(),
+                    Tags = new List<Tag>(),
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Public").ID
                 }
             );
 
@@ -76,19 +105,23 @@ namespace Snippets.Migrations
                 },
                 new Tag
                 {
+                    Label = "Compass"
+                },
+                new Tag
+                {
                     Label = "Tricks"
                 }
             );
 
             context.SaveChanges();
 
-            AddOrUpdateTag(context, 1, "PHP");
-            AddOrUpdateTag(context, 1, "Tricks");
-            AddOrUpdateTag(context, 2, "Tricks");
+            AddOrUpdateTag(context, "JavaScript Properties", "JavaScript");
+            AddOrUpdateTag(context, "JavaScript Properties", "Tricks");
+            AddOrUpdateTag(context, "Compass Spriting", "Compass");
+            AddOrUpdateTag(context, "sprintf", "PHP");
+
 
             AddRoles(new string[] { "Standard", "Admin" } );
-
-            context.SaveChanges();
 
             AddUser("Admin", "Welkom01", "Admin");
             AddUser("Boyd", "Welkom01", "Standard");
@@ -98,8 +131,8 @@ namespace Snippets.Migrations
         }
 
         // Add tags to the snippets
-        private void AddOrUpdateTag(SnippetsDBContext context, int snippetId, string tagLabel) {
-            Snippet snippet = context.Snippets.SingleOrDefault(s => s.ID == snippetId);
+        private void AddOrUpdateTag(SnippetsDBContext context, string snippetTitle, string tagLabel) {
+            Snippet snippet = context.Snippets.SingleOrDefault(s => s.Title == snippetTitle);
 
             Tag tag = snippet.Tags.SingleOrDefault(t => t.Label == tagLabel);
 
