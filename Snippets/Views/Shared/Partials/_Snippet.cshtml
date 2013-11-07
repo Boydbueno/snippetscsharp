@@ -1,0 +1,16 @@
+﻿@using Snippets.Models;
+@model Snippet
+
+<article>
+    <header><h1>@Model.Title</h1></header>
+
+    <pre class="prettyprint linenums">@Model.Body</pre>
+
+    <footer>
+        @foreach (Tag tag in Model.Tags)
+        {
+            <span>@tag.Label</span>
+        }
+    </footer>
+
+</article>

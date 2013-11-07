@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.Designer.cs">
       <DependentUpon>201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311071910093_AddDescriptionToSnippets.cs" />
+    <Compile Include="Migrations\201311071910093_AddDescriptionToSnippets.Designer.cs">
+      <DependentUpon>201311071910093_AddDescriptionToSnippets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
@@ -222,6 +226,37 @@
     <Compile Include="SimpleMembershipInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\prettify\lang-apollo.js" />
+    <Content Include="Content\prettify\lang-basic.js" />
+    <Content Include="Content\prettify\lang-clj.js" />
+    <Content Include="Content\prettify\lang-css.js" />
+    <Content Include="Content\prettify\lang-dart.js" />
+    <Content Include="Content\prettify\lang-erlang.js" />
+    <Content Include="Content\prettify\lang-go.js" />
+    <Content Include="Content\prettify\lang-hs.js" />
+    <Content Include="Content\prettify\lang-lisp.js" />
+    <Content Include="Content\prettify\lang-llvm.js" />
+    <Content Include="Content\prettify\lang-lua.js" />
+    <Content Include="Content\prettify\lang-matlab.js" />
+    <Content Include="Content\prettify\lang-ml.js" />
+    <Content Include="Content\prettify\lang-mumps.js" />
+    <Content Include="Content\prettify\lang-n.js" />
+    <Content Include="Content\prettify\lang-pascal.js" />
+    <Content Include="Content\prettify\lang-proto.js" />
+    <Content Include="Content\prettify\lang-r.js" />
+    <Content Include="Content\prettify\lang-rd.js" />
+    <Content Include="Content\prettify\lang-scala.js" />
+    <Content Include="Content\prettify\lang-sql.js" />
+    <Content Include="Content\prettify\lang-tcl.js" />
+    <Content Include="Content\prettify\lang-tex.js" />
+    <Content Include="Content\prettify\lang-vb.js" />
+    <Content Include="Content\prettify\lang-vhdl.js" />
+    <Content Include="Content\prettify\lang-wiki.js" />
+    <Content Include="Content\prettify\lang-xq.js" />
+    <Content Include="Content\prettify\lang-yaml.js" />
+    <Content Include="Content\prettify\prettify.css" />
+    <Content Include="Content\prettify\prettify.js" />
+    <Content Include="Content\prettify\run_prettify.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -340,11 +375,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Partials\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Areas\Admin\Views\Snippets\Create.cshtml" />
@@ -357,6 +390,7 @@
     <Content Include="Areas\Admin\Views\Tags\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Tags\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Tags\Delete.cshtml" />
+    <Content Include="Views\Shared\Partials\_Snippet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.resx">
       <DependentUpon>201310241014337_CreateManyToManyRelationBetweenTagsAndSnippets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311071910093_AddDescriptionToSnippets.resx">
+      <DependentUpon>201311071910093_AddDescriptionToSnippets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
