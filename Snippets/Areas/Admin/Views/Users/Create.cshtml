@@ -1,4 +1,4 @@
-﻿@model Snippets.Models.RegisterModel
+﻿@model Snippets.Areas.Admin.Models.ViewModels.CreateUser
 
 @{
     ViewBag.Title = "Create";
@@ -14,27 +14,35 @@
         <legend>UserProfile</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
+            @Html.LabelFor(model => model.registerModel.UserName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
+            @Html.EditorFor(model => model.registerModel.UserName)
+            @Html.ValidationMessageFor(model => model.registerModel.UserName)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
+            @Html.LabelFor(model => model.registerModel.Password)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
+            @Html.EditorFor(model => model.registerModel.Password)
+            @Html.ValidationMessageFor(model => model.registerModel.Password)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ConfirmPassword)
+            @Html.LabelFor(model => model.registerModel.ConfirmPassword)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ConfirmPassword)
-            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            @Html.EditorFor(model => model.registerModel.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.registerModel.ConfirmPassword)
+        </div>
+
+        <div>
+        @foreach(string role in Model.roles)
+        {
+            <input type="checkbox" name="roles" value="@role" />
+            @role
+        }
         </div>
 
         <p>

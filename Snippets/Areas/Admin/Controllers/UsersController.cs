@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Snippets.Areas.Admin.Models;
+using Snippets.Areas.Admin.Models.ViewModels;
 using Snippets.Models;
 using WebMatrix.WebData;
 
@@ -41,7 +43,13 @@ namespace Snippets.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            return View();
+
+            CreateUser createUser = new CreateUser();
+
+            createUser.registerModel = new RegisterModel();
+            createUser.roles = Roles.GetAllRoles();
+
+            return View(createUser);
         }
 
         //
@@ -49,15 +57,18 @@ namespace Snippets.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RegisterModel registerModel)
+        public ActionResult Create(CreateUser createUser)
         {
             if (ModelState.IsValid)
             {
-                WebSecurity.CreateUserAndAccount(registerModel.UserName, registerModel.Password);
+                WebSecurity.CreateUserAndAccount(createUser.registerModel.UserName, createUser.registerModel.Password);
+
+                Roles.AddUserToRoles(createUser.registerModel.UserName, createUser.roles);
+                
                 return RedirectToAction("Index");
             }
 
-            return View(registerModel);
+            return View(createUser);
         }
 
         //

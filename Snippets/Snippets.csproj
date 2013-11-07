@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\Role.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModels\CreateUser.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\RoleUsers.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
