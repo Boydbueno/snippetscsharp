@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Snippets.Areas.Admin.Models;
 using Snippets.Areas.Admin.Models.ViewModels;
-using Snippets.Filters;
 
 namespace Snippets.Areas.Admin.Controllers
 {
