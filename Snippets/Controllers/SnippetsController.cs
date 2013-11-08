@@ -7,6 +7,7 @@ using Snippets.Models;
 
 namespace Snippets.Controllers
 {
+    [Authorize(Roles="Admin, Standard")]
     public class SnippetsController : Controller
     {
 

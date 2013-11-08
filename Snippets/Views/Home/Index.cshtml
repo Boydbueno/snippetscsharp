@@ -5,7 +5,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@if (Roles.IsUserInRole("Admin"))
+@if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("Standard"))
 {
     @Html.ActionLink("Create a Snippet", "create", "snippets")
 }
