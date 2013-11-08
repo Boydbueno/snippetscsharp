@@ -23,6 +23,7 @@ namespace Snippets.Areas.Admin.Controllers
         public ActionResult Index()
         {
             return View(db.UserProfiles.ToList());
+ 
         }
 
         //
@@ -68,8 +69,11 @@ namespace Snippets.Areas.Admin.Controllers
             {
                 WebSecurity.CreateUserAndAccount(createUser.registerModel.UserName, createUser.registerModel.Password);
 
-                Roles.AddUserToRoles(createUser.registerModel.UserName, createUser.roles);
-                
+                if (createUser.roles != null)
+                {
+                    Roles.AddUserToRoles(createUser.registerModel.UserName, createUser.roles);
+                }
+
                 return RedirectToAction("Index");
             }
 
