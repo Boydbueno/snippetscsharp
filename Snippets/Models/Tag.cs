@@ -13,6 +13,7 @@ namespace Snippets.Models
         public virtual int ID { get; set; }
 
         [Required]
+        [MaxLength(10, ErrorMessage="Amount of characters cannot exceed {1}")]
         [DisplayName("Tag")]
         public virtual string Label { get; set; }
 
