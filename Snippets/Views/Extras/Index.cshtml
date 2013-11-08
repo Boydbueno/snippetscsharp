@@ -1,0 +1,60 @@
+﻿@using Snippets.Models;
+@using Snippets.Areas.Admin.Models.ViewModels;
+
+@model Snippets.Models.ViewModels.ExtraVM
+
+<h1>Extra's!</h1>
+<p>
+    This is a page just for the sake of showing some additional stuff
+</p>
+
+<h2>Advanced helpers</h2>
+
+<p>
+    Below is an awesome dropdown created with an advanced helper for you to enjoy!
+</p>
+
+@Html.DropDownList("Gender", new List<SelectListItem>
+{
+   new SelectListItem() { Text = "Human", Value = "Human" },
+   new SelectListItem() { Text = "Alien" , Value = "Alien" },
+   new SelectListItem() { Text = "Dancer" , Value = "Dancer" }
+})
+
+<h2>Viewmodels</h2>
+
+<p>
+    I do know how to use ViewModels, I used a couple in this project. But just to prove that I can make one with multiple models, I'll show right now! (Check the code)
+</p>
+
+<h3>Tags</h3>
+<ul>
+@foreach (SelectedTagData tag in Model.Tags)
+{
+    <li>@tag.Label</li>
+} 
+</ul>
+
+<h3>Visibilities</h3>
+<ul>
+@foreach (Visibility visibility in Model.Visibilies)
+{
+    <li>@visibility.Label</li>
+} 
+</ul>
+
+<h2>Complexe views</h2>
+
+<p>
+    It get's even more awesome. Let's make this view a complex one!
+    Below I'll create a dropdown by using a list of models just to show I can.
+</p>
+
+<h3>Visibilities</h3>
+@Html.DropDownListFor(model => model.Visibilies, new SelectList(Model.Visibilies, "id", "label","--select--"))
+
+<p>To make this a bit more awesome. Let's create an editorTemplate for the tags!</p>
+
+<h3>Tags</h3>
+
+@Html.EditorFor(model => model.Tags)

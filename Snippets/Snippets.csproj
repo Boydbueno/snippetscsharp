@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\Models\ViewModels\SelectedRoleData.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\UserRoles.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExtrasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SnippetsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagsController.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="Models\SnippetsDBContext.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\SelectedTagData.cs" />
+    <Compile Include="Models\ViewModels\ExtraVM.cs" />
     <Compile Include="Models\Visibility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -423,6 +425,8 @@
     <Content Include="Areas\Admin\Views\Tags\Delete.cshtml" />
     <Content Include="Views\Shared\Partials\_Snippet.cshtml" />
     <Content Include="Views\Snippets\Create.cshtml" />
+    <Content Include="Views\Extras\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectedTagData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

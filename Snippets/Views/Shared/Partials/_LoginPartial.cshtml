@@ -4,11 +4,12 @@
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
             @Html.AntiForgeryToken()
             <ul>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-            @if(Roles.IsUserInRole("admin"))
-            {
-                <li>@Html.ActionLink("Admin Panel", "Home", "Admin")</li> <!-- This link goes to the home controller in the admin area -->
-            }
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                @if(Roles.IsUserInRole("admin"))
+                {
+                    <li>@Html.ActionLink("Admin Panel", "Home", "Admin")</li> <!-- This link goes to the home controller in the admin area -->
+                }
+                <li>@Html.ActionLink("Extra's!", "Index", "Extras")</li>
             </ul>
         }
     </p>
