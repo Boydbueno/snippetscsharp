@@ -31,7 +31,8 @@ label
 }
 
 input[type=text],
-input[type=password]
+input[type=password],
+textarea
 {
     display: block;
     width: 100%;
@@ -129,6 +130,11 @@ h2,
     {
         font-weight: bold;
     }
+
+.snippet-editor textarea
+{
+    height: 300px;
+}
 
 .metadata
 {

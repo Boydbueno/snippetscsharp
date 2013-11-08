@@ -1,0 +1,66 @@
+﻿@model Snippets.Models.Snippet
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<section class="create-form">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Body)
+        </div>
+        <div class="editor-field snippet-editor">
+            @Html.EditorFor(model => model.Body)
+            @Html.ValidationMessageFor(model => model.Body)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VisibilityId, "Visibility")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("VisibilityId", String.Empty)
+            @Html.ValidationMessageFor(model => model.VisibilityId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode, "ZipCode")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    }
+</section>
+
+<div>
+    @Html.ActionLink("Back to Overview", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

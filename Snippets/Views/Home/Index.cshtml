@@ -5,9 +5,21 @@
     ViewBag.Title = "Home Page";
 }
 
+@if (Roles.IsUserInRole("Admin"))
+{
+    @Html.ActionLink("Create a Snippet", "create", "snippets")
+}
+
 @foreach(Snippet snippet in Model)
 {
-    @Html.Partial("Partials/_snippet", snippet); 
+    // I know, this if statement is waayy too big for placement in the view. But I'm uncertain how to abstract this
+    if( ( !WebSecurity.IsAuthenticated && snippet.Visibility.Label == "Public" ) ||
+        ( (Roles.IsUserInRole("Standard") || Roles.IsUserInRole("Admin")) && (snippet.Visibility.Label == "Protected" || snippet.Visibility.Label == "Public" ) ) ||
+        ( Roles.IsUserInRole("Admin") && (snippet.Visibility.Label == "Hidden" || snippet.Visibility.Label == "Protected" || snippet.Visibility.Label == "Public") )
+    )
+    { 
+        @Html.Partial("Partials/_snippet", snippet); 
+    }
 }
 
 @section scripts{

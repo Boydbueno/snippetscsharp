@@ -195,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SnippetsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagsController.cs" />
+    <Compile Include="Controllers\SnippetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -419,6 +420,7 @@
     <Content Include="Areas\Admin\Views\Tags\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Tags\Delete.cshtml" />
     <Content Include="Views\Shared\Partials\_Snippet.cshtml" />
+    <Content Include="Views\Snippets\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
