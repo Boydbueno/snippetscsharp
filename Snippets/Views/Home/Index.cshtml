@@ -12,7 +12,7 @@
 
 @foreach(Snippet snippet in Model)
 {
-    // I know, this if statement is waayy too big for placement in the view. But I'm uncertain how to abstract this
+    // I know, this if statement is waayy too big for placement in the view. But I'm uncertain how to abstract this away
     if( ( !WebSecurity.IsAuthenticated && snippet.Visibility.Label == "Public" ) ||
         ( (Roles.IsUserInRole("Standard") || Roles.IsUserInRole("Admin")) && (snippet.Visibility.Label == "Protected" || snippet.Visibility.Label == "Public" ) ) ||
         ( Roles.IsUserInRole("Admin") && (snippet.Visibility.Label == "Hidden" || snippet.Visibility.Label == "Protected" || snippet.Visibility.Label == "Public") )
