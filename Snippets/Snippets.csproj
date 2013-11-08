@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201311081121017_AddedMaximumLengthToTagLabel.Designer.cs">
       <DependentUpon>201311081121017_AddedMaximumLengthToTagLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311081131008_MadeDescriptionNullableAndBodyRequired.cs" />
+    <Compile Include="Migrations\201311081131008_MadeDescriptionNullableAndBodyRequired.Designer.cs">
+      <DependentUpon>201311081131008_MadeDescriptionNullableAndBodyRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
@@ -450,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311081121017_AddedMaximumLengthToTagLabel.resx">
       <DependentUpon>201311081121017_AddedMaximumLengthToTagLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311081131008_MadeDescriptionNullableAndBodyRequired.resx">
+      <DependentUpon>201311081131008_MadeDescriptionNullableAndBodyRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

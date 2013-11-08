@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -15,10 +16,12 @@ namespace Snippets.Models
         [Required]
         public virtual string Title { get; set; }
 
-        [Required]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
+        [Required]
         [DataType(DataType.MultilineText)]
+        [DisplayName("Snippet")]
         public virtual string Body { get; set; }
 
         public virtual List<Category> Categories { get; set; }
