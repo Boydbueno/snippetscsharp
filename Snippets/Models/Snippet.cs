@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Snippets.Models
 {
@@ -20,6 +21,7 @@ namespace Snippets.Models
         public string Description { get; set; }
 
         [Required]
+        [AllowHtml]
         [DataType(DataType.MultilineText)]
         [DisplayName("Snippet")]
         public virtual string Body { get; set; }
