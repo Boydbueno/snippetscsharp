@@ -6,12 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Snippet</legend>
+<section class="create-form">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Title)
@@ -56,8 +54,8 @@
         <p>
             <input type="submit" value="Create" />
         </p>
-    </fieldset>
-}
+    }
+</section>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
