@@ -15,9 +15,10 @@ namespace Snippets.Models
         [Required]
         public virtual string Title { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
-        [DataType(DataType.MultilineText)] 
+        [DataType(DataType.MultilineText)]
         public virtual string Body { get; set; }
 
         public virtual List<Category> Categories { get; set; }
@@ -25,5 +26,9 @@ namespace Snippets.Models
 
         public virtual int VisibilityId { get; set; }
         public virtual Visibility Visibility { get; set; }
+
+        // I know, not usual for a snippet to have a zipcode, but this is a 'hook' to apply some 'complex' validation
+        [RegularExpression("\\d{4} ?[a-zA-Z]{2}", ErrorMessage="This is no valid Dutch Zipcode")]
+        public string ZipCode { get; set; }
     }
 }

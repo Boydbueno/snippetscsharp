@@ -45,6 +45,14 @@
             @Html.ValidationMessageFor(model => model.VisibilityId)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode, "ZipCode")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>

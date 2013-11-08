@@ -214,6 +214,14 @@
     <Compile Include="Migrations\201311071910093_AddDescriptionToSnippets.Designer.cs">
       <DependentUpon>201311071910093_AddDescriptionToSnippets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311080945194_AddZipCodeToSnippet.cs" />
+    <Compile Include="Migrations\201311080945194_AddZipCodeToSnippet.Designer.cs">
+      <DependentUpon>201311080945194_AddZipCodeToSnippet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311080946233_MadeZipCodeNullable.cs" />
+    <Compile Include="Migrations\201311080946233_MadeZipCodeNullable.Designer.cs">
+      <DependentUpon>201311080946233_MadeZipCodeNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
@@ -415,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311071910093_AddDescriptionToSnippets.resx">
       <DependentUpon>201311071910093_AddDescriptionToSnippets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311080945194_AddZipCodeToSnippet.resx">
+      <DependentUpon>201311080945194_AddZipCodeToSnippet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311080946233_MadeZipCodeNullable.resx">
+      <DependentUpon>201311080946233_MadeZipCodeNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
