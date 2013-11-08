@@ -140,7 +140,7 @@ h2,
     display: inline-block;
 }
 
-.tag
+.tags > .tag
 {
     font-size: 12px;
     border: 1px solid;
