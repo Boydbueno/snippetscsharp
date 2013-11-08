@@ -32,7 +32,7 @@ namespace Snippets.Models
         public virtual int VisibilityId { get; set; }
         public virtual Visibility Visibility { get; set; }
 
-        // I know, not usual for a snippet to have a zipcode, but this is a 'hook' to apply some 'complex' validation
+        // I know, not usual for a snippet to have a zipcode, but this is a 'hook' to apply some 'complex' validation xD
         [RegularExpression("\\d{4} ?[a-zA-Z]{2}", ErrorMessage="This is no valid Dutch Zipcode")]
         public string ZipCode { get; set; }
     }

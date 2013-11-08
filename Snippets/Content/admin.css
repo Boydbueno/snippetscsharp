@@ -1,9 +1,4 @@
-﻿html, body
-{
-    height: 100%;
-}
-
-body
+﻿body
 {
     font-family: 'Noto Sans', sans-serif;
     color: #767575;
@@ -14,7 +9,6 @@ body
 .container
 {
     width: 960px;
-    height: 100%;
     margin: 0 auto;
     background-color: white;
     padding: 0 40px;
@@ -63,6 +57,11 @@ td
 {
     padding: 8px;
     border-top: 1px solid #ddd;
+}
+
+.snippet textarea
+{
+    height: 300px;
 }
 
 .menu
