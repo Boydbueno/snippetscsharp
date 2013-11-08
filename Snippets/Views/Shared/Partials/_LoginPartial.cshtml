@@ -1,11 +1,17 @@
 ﻿@if (Request.IsAuthenticated) {
-    <text>
+    <p>
         Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
             @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <ul>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            @if(Roles.IsUserInRole("admin"))
+            {
+                <li>@Html.ActionLink("Admin Panel", "Home", "Admin")</li> <!-- This link goes to the home controller in the admin area -->
+            }
+            </ul>
         }
-    </text>
+    </p>
 } else {
     <ul>
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>

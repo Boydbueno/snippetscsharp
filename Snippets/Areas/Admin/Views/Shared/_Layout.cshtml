@@ -13,14 +13,6 @@
     <body>
         <div class="container cf">
 
-            <header>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("Partials/_LoginPartial")
-                    </section>
-                </div>
-            </header>
-
             <div class="menu">
                 <h1 class="beta">Menu</h1>
                 <nav>
@@ -36,6 +28,27 @@
                         <li>@Html.ActionLink("Roles", "index", "roles")</li>
                     </ul>
                 </nav>
+                <section class="login">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <p>
+                        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+                        @using (Html.BeginForm("LogOff", "../Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        }
+                        </p>
+                    }
+                    else
+                    {
+                        <ul>
+                            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                        </ul>
+}
+
+                </section>
             </div>
             
 
