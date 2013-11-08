@@ -32,6 +32,39 @@ namespace Snippets.Migrations
             context.Snippets.AddOrUpdate(s => s.Title,
                 new Snippet
                 {
+                    Title = "Public Snippet",
+                    Description = "This is a public snippet and will be visible for everyone visiting this website",
+                    Body = @"function sayHi() {
+    return ""Hi There!"";
+}",
+                    Tags = new List<Tag>(),
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Public").ID
+                },
+                new Snippet
+                {
+                    Title = "Protected Snippet",
+                    Description = "This is a protected snippet and will only be visible to logged in users. Admins or standard users",
+                    Body = @"var sayHi = function() {
+    return ""Hi There!"";
+}",
+                    Tags = new List<Tag>(),
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Protected").ID
+                },
+                new Snippet
+                {
+                    Title = "Hidden Snippet",
+                    Description = "This is a hidden snippet and will and will only be visible to an admin",
+                    Body = @"(function() {
+    ""use strict""
+    var sayHi = function() {
+        return ""Hi There!"";
+    }
+)();",
+                    Tags = new List<Tag>(),
+                    VisibilityId = context.Visibilities.Single(s => s.Label == "Hidden").ID
+                },
+                new Snippet
+                {
                     Title = "JavaScript Properties",
                     Description = "Ipv methods/properties gewoon aan de prototype te hangen kan dat ook via defineProperties",
                     Body = @"Object.defineProperties(o.prototype, {
@@ -75,7 +108,8 @@ $string = sprintf(""My name is %s and I知 $d years old. I知 currently a $s"", $n
             );
 
             context.Visibilities.AddOrUpdate(v => v.Label,
-                new Visibility { 
+                new Visibility
+                {
                     Label = "Hidden",
                     Description = "Only visible for administrators"
                 },
@@ -118,7 +152,7 @@ $string = sprintf(""My name is %s and I知 $d years old. I知 currently a $s"", $n
             AddOrUpdateTag(context, "sprintf", "PHP");
 
 
-            AddRoles(new string[] { "Standard", "Admin" } );
+            AddRoles(new string[] { "Standard", "Admin" });
 
             AddUser("Admin", "Welkom01", "Admin");
             AddUser("Boyd", "Welkom01", "Standard");
@@ -128,12 +162,14 @@ $string = sprintf(""My name is %s and I知 $d years old. I知 currently a $s"", $n
         }
 
         // Add tags to the snippets
-        private void AddOrUpdateTag(SnippetsDBContext context, string snippetTitle, string tagLabel) {
+        private void AddOrUpdateTag(SnippetsDBContext context, string snippetTitle, string tagLabel)
+        {
             Snippet snippet = context.Snippets.SingleOrDefault(s => s.Title == snippetTitle);
 
             Tag tag = snippet.Tags.SingleOrDefault(t => t.Label == tagLabel);
 
-            if(tag == null) {
+            if (tag == null)
+            {
                 snippet.Tags.Add(context.Tags.Single(t => t.Label == tagLabel));
             }
         }
