@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201311080946233_MadeZipCodeNullable.Designer.cs">
       <DependentUpon>201311080946233_MadeZipCodeNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311081115567_MadeLabelFieldFromVisibilityRequired.cs" />
+    <Compile Include="Migrations\201311081115567_MadeLabelFieldFromVisibilityRequired.Designer.cs">
+      <DependentUpon>201311081115567_MadeLabelFieldFromVisibilityRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Snippet.cs" />
@@ -429,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311080946233_MadeZipCodeNullable.resx">
       <DependentUpon>201311080946233_MadeZipCodeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311081115567_MadeLabelFieldFromVisibilityRequired.resx">
+      <DependentUpon>201311081115567_MadeLabelFieldFromVisibilityRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
