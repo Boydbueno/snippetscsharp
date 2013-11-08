@@ -47,7 +47,6 @@ namespace Snippets.Migrations
      }
 });
 ",
-                    Categories = new List<Category>(),
                     Tags = new List<Tag>(),
                     VisibilityId = context.Visibilities.Single(s => s.Label == "Public").ID
                 },
@@ -58,7 +57,6 @@ namespace Snippets.Migrations
                     Body = @"@import ""my-icons/*.png"";
 @include all-my-icons-sprites;
 ",
-                    Categories = new List<Category>(),
                     Tags = new List<Tag>(),
                     VisibilityId = context.Visibilities.Single(s => s.Label == "Protected").ID
                 },
@@ -71,7 +69,6 @@ $age = ""23"";
 $job = ""Student"";
 $string = sprintf(""My name is %s and I’m $d years old. I’m currently a $s"", $name, $age, $job);
 ",
-                    Categories = new List<Category>(),
                     Tags = new List<Tag>(),
                     VisibilityId = context.Visibilities.Single(s => s.Label == "Public").ID
                 }

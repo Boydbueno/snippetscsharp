@@ -26,7 +26,6 @@ namespace Snippets.Models
         [DisplayName("Snippet")]
         public virtual string Body { get; set; }
 
-        public virtual List<Category> Categories { get; set; }
         public virtual List<Tag> Tags { get; set; }
 
         public virtual int VisibilityId { get; set; }
