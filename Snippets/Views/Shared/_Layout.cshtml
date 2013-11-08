@@ -5,6 +5,7 @@
         <title>@ViewBag.Title - My ASP.NET MVC Application</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
         @Styles.Render("~/Content/normalize.css")
         @Styles.Render("~/Content/base.css")
         @Styles.Render("~/Content/prettify/prettify.css")
@@ -12,15 +13,13 @@
     <body>
         <div class="container">
 
-            <header>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("Partials/_LoginPartial")
-                    </section>
-                </div>
+            <header class="cf">
+                <section class="login float-right">
+                    @Html.Partial("Partials/_LoginPartial")
+                </section>
             </header>
 
-            <section class="content-wrapper main-content clear-fix">
+            <section class="cf">
                 @RenderBody()
             </section>
         

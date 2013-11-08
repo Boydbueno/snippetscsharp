@@ -1,118 +1,161 @@
-/*
- * Derived from einaros's Sons of Obsidian theme at
- * http://studiostyl.es/schemes/son-of-obsidian by
- * Alex Ford of CodeTunnel:
- * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
- */
+/* Hemisu Light */
+/* Original theme - http://noahfrederick.com/vim-color-scheme-hemisu/ */
+/* Pretty printing styles. Used with prettify.js. */
+/* SPAN elements with the classes below are added by prettyprint. */
+/* plain text */
+.pln {
+  color: #111111;
+}
 
-.str
-{
-    color: #EC7600;
+@media screen {
+  /* string content */
+  .str {
+    color: #739200;
+  }
+
+  /* a keyword */
+  .kwd {
+    color: #739200;
+  }
+
+  /* a comment */
+  .com {
+    color: #999999;
+  }
+
+  /* a type name */
+  .typ {
+    color: #ff0055;
+  }
+
+  /* a literal value */
+  .lit {
+    color: #538192;
+  }
+
+  /* punctuation */
+  .pun {
+    color: #111111;
+  }
+
+  /* lisp open bracket */
+  .opn {
+    color: #111111;
+  }
+
+  /* lisp close bracket */
+  .clo {
+    color: #111111;
+  }
+
+  /* a markup tag name */
+  .tag {
+    color: #111111;
+  }
+
+  /* a markup attribute name */
+  .atn {
+    color: #739200;
+  }
+
+  /* a markup attribute value */
+  .atv {
+    color: #ff0055;
+  }
+
+  /* a declaration */
+  .dec {
+    color: #111111;
+  }
+
+  /* a variable name */
+  .var {
+    color: #111111;
+  }
+
+  /* a function name */
+  .fun {
+    color: #538192;
+  }
 }
-.kwd
-{
-    color: #93C763;
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+
+  .lit {
+    color: #004444;
+  }
+
+  .pun, .opn, .clo {
+    color: #444400;
+  }
+
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .atn {
+    color: #440044;
+  }
+
+  .atv {
+    color: #006600;
+  }
 }
-.com
-{
-    color: #66747B;
+/* Style */
+pre.prettyprint {
+  background: white;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  border: .09em solid;
+  border-color: rgba(0,0,0,0.1);
+  padding: 10px;
 }
-.typ
-{
-    color: #678CB1;
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-.lit
-{
-    color: #FACD22;
+
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  /* */
 }
-.pun
-{
-    color: #F1F2F3;
-}
-.pln
-{
-    color: #F1F2F3;
-}
-.tag
-{
-    color: #8AC763;
-}
-.atn
-{
-    color: #E0E2E4;
-}
-.atv
-{
-    color: #EC7600;
-}
-.dec
-{
-    color: purple;
-}
-pre.prettyprint
-{
-    border: 0px solid #888;
-}
-ol.linenums
-{
-    margin-top: 0;
-    margin-bottom: 0;
-}
-.prettyprint {
-    background: #000;
-}
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
-{
-    color: #555;
-    list-style-type: decimal;
-}
-li.L1, li.L3, li.L5, li.L7, li.L9 {
-    background: #111;
-}
-@media print
-{
-    .str
-    {
-        color: #060;
-    }
-    .kwd
-    {
-        color: #006;
-        font-weight: bold;
-    }
-    .com
-    {
-        color: #600;
-        font-style: italic;
-    }
-    .typ
-    {
-        color: #404;
-        font-weight: bold;
-    }
-    .lit
-    {
-        color: #044;
-    }
-    .pun
-    {
-        color: #440;
-    }
-    .pln
-    {
-        color: #000;
-    }
-    .tag
-    {
-        color: #006;
-        font-weight: bold;
-    }
-    .atn
-    {
-        color: #404;
-    }
-    .atv
-    {
-        color: #060;
-    }
+
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  /* */
 }

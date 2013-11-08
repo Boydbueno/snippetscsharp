@@ -1,19 +1,23 @@
 ﻿@using Snippets.Models;
 @model Snippet
 
-<article>
+<article class="snippet">
     <header><h1>@Model.Title</h1></header>
 
-    <p>@Model.Description</p>
+    <div class="metadata">
+        <ul class="tags">
+        @foreach (Tag tag in Model.Tags)
+        {
+            <li class="tag">@tag.Label</li>
+        }
+        </ul>
+    </div>
+
+
+    <p class="description">@Model.Description</p>
 
     <pre class="prettyprint linenums">@Model.Body</pre>
 
-    <footer>
-        @foreach (Tag tag in Model.Tags)
-        {
-            <span>@tag.Label</span>
-        }
-    </footer>
     @if (Roles.IsUserInRole("Admin"))
     {
         <span>Visibility:</span> @Model.Visibility.Label
