@@ -5,10 +5,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table class="table">
     <tr>
         <th>
             Roles
+        </th>
+        <th>
         </th>
         <th>
         </th>
@@ -20,7 +22,9 @@
             @role.Name
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = role.Name }) |
+            @Html.ActionLink("Details", "Details", new { id = role.Name })
+        </td>
+        <td>
             @Html.ActionLink("Delete", "Delete", new { id = role.Name })
         </td>
     </tr>

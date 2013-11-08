@@ -226,6 +226,10 @@
     <Compile Include="SimpleMembershipInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\base.css" />
+    <Content Include="Content\images\bg.gif" />
+    <Content Include="Content\normalize.css" />
     <Content Include="Content\prettify\lang-apollo.js" />
     <Content Include="Content\prettify\lang-basic.js" />
     <Content Include="Content\prettify\lang-clj.js" />

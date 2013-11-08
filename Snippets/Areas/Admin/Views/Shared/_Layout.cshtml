@@ -7,11 +7,11 @@
         <meta name="viewport" content="width=device-width" />
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
         @Styles.Render("~/Content/normalize.css")
-        @Styles.Render("~/Content/base.css")
+        @Styles.Render("~/Content/admin.css")
         @Styles.Render("~/Content/prettify/prettify.css")
     </head>
     <body>
-        <div class="container">
+        <div class="container cf">
 
             <header>
                 <div class="float-right">
@@ -21,7 +21,25 @@
                 </div>
             </header>
 
-            <section class="content-wrapper main-content clear-fix">
+            <div class="menu">
+                <h1 class="beta">Menu</h1>
+                <nav>
+                    <ul>
+                        <li>@Html.ActionLink("Snippets", "index", "snippets")</li>
+                        <li>@Html.ActionLink("Tags", "index", "tags")</li>
+                    </ul>
+                </nav>
+                <h2 class="delta">Users</h2>
+                <nav>
+                    <ul>
+                        <li>@Html.ActionLink("Users", "index", "users")</li>
+                        <li>@Html.ActionLink("Roles", "index", "roles")</li>
+                    </ul>
+                </nav>
+            </div>
+            
+
+            <section class="content cf">
                 @RenderBody()
             </section>
         

@@ -13,7 +13,7 @@ using WebMatrix.WebData;
 
 namespace Snippets.Areas.Admin.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : AdminController
     {
         private UsersContext db = new UsersContext();
 
